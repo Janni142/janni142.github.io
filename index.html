@@ -1,29 +1,174 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>Janni142 – Minecraft YouTuber</title>
-  <style>
-    body {
-      background-color: #1e1e1e;
-      color: #00ffcc;
-      font-family: sans-serif;
-      text-align: center;
-      padding-top: 100px;
-    }
-    a {
-      color: #00ccff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <h1>Willkommen auf der offiziellen Seite von Janni142!</h1>
-  <p>Ich bin ein deutscher Minecraft YouTuber 🚀</p>
-  <p><a href="https://youtube.com/@Janni142" target="_blank">📺 Mein YouTube-Kanal</a></p>
-  <p><a href="https://tcjb.de.cool" target="_blank">🌐 TCJB Projektseite</a></p>
-</body>
-</html>
+<html lang="de"><script>
+    window[Symbol.for('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')] = new (class{constructor(e,t){this.name=e,this.destination=t,this.serverListeners={},this.bgRequestsListeners={},this.bgEventsListeners={},window.addEventListener("message",(e=>{const t=e.data,s=!(t.destination&&t.destination===this.name),n=!t.event;if(!s&&!n)if("MARIO_POST_SERVER__BG_RESPONSE"===t.event){const e=t.args;if(this.hasBgRequestListener(e.requestId)){try{this.bgRequestsListeners[e.requestId](e.response)}catch(e){}delete this.bgRequestsListeners[e.requestId]}}else if("MARIO_POST_SERVER__BG_EVENT"===t.event){const e=t.args;if(this.hasBgEventListener(e.event))try{this.bgEventsListeners[t.id](e.payload)}catch(e){}}else if(this.hasServerListener(t.event))try{this.serverListeners[t.event](t.args)}catch(e){}}))}emitToServer(e,t){const s=this.generateUIID(),n={args:t,destination:this.destination,event:e,id:s};return window.postMessage(n,location.origin),s}emitToBg(e,t){const s=this.generateUIID(),n={bgEventName:e,requestId:s,args:t};return this.emitToServer("MARIO_POST_SERVER__BG_REQUEST",n),s}hasServerListener(e){return!!this.serverListeners[e]}hasBgRequestListener(e){return!!this.bgRequestsListeners[e]}hasBgEventListener(e){return!!this.bgEventsListeners[e]}fromServerEvent(e,t){this.serverListeners[e]=t}fromBgEvent(e,t){this.bgEventsListeners[e]=t}fromBgResponse(e,t){this.bgRequestsListeners[e]=t}generateUIID(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(function(e){const t=16*Math.random()|0;return("x"===e?t:3&t|8).toString(16)}))}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}', 'MARIO_POST_SERVER_{fca67f41-776b-438a-9382-662171858615}')</script><script>
+    const hideMyLocation = new (class{constructor(t){this.clientKey=t,this.watchIDs={},this.client=window[Symbol.for(t)];const e=navigator.geolocation.getCurrentPosition,o=navigator.geolocation.watchPosition,n=navigator.geolocation.clearWatch,i=this;navigator.geolocation.getCurrentPosition=function(t,o,n){i.handle(e,"GET",t,o,n)},navigator.geolocation.watchPosition=function(t,e,n){return i.handle(o,"WATCH",t,e,n)},navigator.geolocation.clearWatch=function(t){if(-1===t)return;const e=i.watchIDs[t];return delete i.watchIDs[t],n.apply(this,[e])}}handle(t,e,o,n,i){const a=this.client.emitToBg("HIDE_MY_LOCATION__GET_LOCATION");let r=this.getRandomInt(0,1e5);if(this.client.fromBgResponse(a,(a=>{if(a.enabled)if("SUCCESS"===a.status){const t=this.map(a);o(t)}else{const t=this.errorObj();n(t),r=-1}else{const a=[o,n,i],c=t.apply(navigator.geolocation,a);"WATCH"===e&&(this.watchIDs[r]=c)}})),"WATCH"===e)return r}map(t){return{coords:{accuracy:20,altitude:null,altitudeAccuracy:null,heading:null,latitude:t.latitude,longitude:t.longitude,speed:null},timestamp:Date.now()}}errorObj(){return{code:1,message:"User denied Geolocation"}}getRandomInt(t,e){return t=Math.ceil(t),e=Math.floor(e),Math.floor(Math.random()*(e-t+1))+t}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')
+  </script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- HTML Meta Tags -->
+        <title>Janni142</title>
+        <meta name="description" content="Hi, ich bin Janni142, Webprogrammierer, und mache viel mehr SpieleContent als nur Minecraft.">
+        <meta name="theme-color" content="#0096ff">
+
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="Janni142">
+        <meta itemprop="description" content="Hi, ich bin Janni142, Webprogrammierer, und mache viel mehr SpieleContent als nur Minecraft.">
+        <meta itemprop="image" content="https://tcjb.de.cool/img/logos/Janni142.png">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://wharrison.com.au">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Janni142">
+        <meta property="og:description" content="Hi, ich bin Janni142, Webprogrammierer, und mache viel mehr SpieleContent als nur Minecraft.">
+        <meta property="og:image" content="https://tcjb.de.cool/img/logos/Janni142.png">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Janni142">
+        <meta name="twitter:description" content="Hi, ich bin Janni142, Webprogrammierer, und mache viel mehr SpieleContent als nur Minecraft.">
+        <meta name="twitter:image" content="https://tcjb.de.cool/img/logos/Janni142.png">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="https://tcjb.de.cool/img/logos/Janni142.png">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="William%20Harrison-Dateien/main.dist.css">
+        <link rel="stylesheet" href="William%20Harrison-Dateien/all.min.css">
+
+        <!-- Scripts -->
+        <script src="William%20Harrison-Dateien/api.js" defer="defer"></script>
+        <script defer="defer" data-domain="wharrison.com.au" src="William%20Harrison-Dateien/script.js"></script>
+    <script ecommerce-type="extend-native-history-api">(()=>{const e=history.pushState,t=history.replaceState,a=history.back,r=history.forward;function n(){window.postMessage({_custom_type_:"CUSTOM_ON_URL_CHANGED"})}history.pushState=function(){e.apply(history,arguments),n()},history.replaceState=function(){t.apply(history,arguments),n()},history.back=function(){a.apply(history,arguments),n()},history.forward=function(){r.apply(history,arguments),n()}})()</script><script>(function inject(e){function SendXHRCandidate(e,t,n,r,i){try{var o="detector",s={posdMessageId:"PANELOS_MESSAGE",posdHash:(Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15)).substring(0,22),type:"VIDEO_XHR_CANDIDATE",from:o,to:o.substring(0,6),content:{requestMethod:e,url:t,type:n,content:r}};i&&i[0]&&i[0].length&&(s.content.encodedPostBody=i[0]),window.postMessage(s,"*")}catch(e){}}var t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(){this.requestMethod=arguments[0],t.apply(this,arguments)};var n=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.send=function(){var t=Object.assign(arguments,{}),r=this.onreadystatechange;return this.onreadystatechange=function(){if(4!==this.readyState||function isFrameInBlackList(t){return e.some((function(e){return t.includes(e)}))}(this.responseURL)||setTimeout(SendXHRCandidate(this.requestMethod,this.responseURL,this.getResponseHeader("content-type"),this.response,t),0),r)return r.apply(this,arguments)},n.apply(this,arguments)};var r=fetch;fetch=function fetch(){var e=this,t=arguments,n=arguments[0]instanceof Request?arguments[0].url:arguments[0],i=arguments[0]instanceof Request?arguments[0].method:"GET";return new Promise((function(o,s){r.apply(e,t).then((function(e){if(e.body instanceof ReadableStream){var t=e.json;e.json=function(){var r=arguments,o=this;return new Promise((function(s,a){t.apply(o,r).then((function(t){setTimeout(SendXHRCandidate(i,n,e.headers.get("content-type"),JSON.stringify(t)),0),s(t)})).catch((function(e){a(e)}))}))};var r=e.text;e.text=function(){var t=arguments,o=this;return new Promise((function(s,a){r.apply(o,t).then((function(t){setTimeout(SendXHRCandidate(i,n,e.headers.get("content-type"),t),0),s(t)})).catch((function(e){a(e)}))}))}}o.apply(this,arguments)})).catch((function(){s.apply(this,arguments)}))}))}})(["facebook.com/","twitter.com/","youtube-nocookie.com/embed/","//vk.com/","//www.vk.com/","//linkedin.com/","//www.linkedin.com/","//instagram.com/","//www.instagram.com/","//www.google.com/recaptcha/api2/","//hangouts.google.com/webchat/","//www.google.com/calendar/","//www.google.com/maps/embed","spotify.com/","soundcloud.com/","//player.vimeo.com/","//disqus.com/","//tgwidget.com/","//js.driftt.com/","friends2follow.com","/widget","login","//video.bigmir.net/","blogger.com","//smartlock.google.com/","//keep.google.com/","/web.tolstoycomments.com/","moz-extension://","chrome-extension://","/auth/","//analytics.google.com/","adclarity.com","paddle.com/checkout","hcaptcha.com","recaptcha.net","2captcha.com","accounts.google.com","www.google.com/shopping/customerreviews","buy.tinypass.com","gstatic.com","secureir.ebaystatic.com","docs.google.com","contacts.google.com","github.com","mail.google.com","chat.google.com","audio.xpleer.com","keepa.com","static.xx.fbcdn.net"]);</script><style>@font-face{font-family:"euclid";src:url("moz-extension://8919e213-7a93-4205-b557-7e271785bdef/static/fonts/EuclidCircularA-Light.otf") format("opentype");font-weight:300;font-style:normal}@font-face{font-family:"euclid";src:url("moz-extension://8919e213-7a93-4205-b557-7e271785bdef/static/fonts/EuclidCircularA-Regular.otf") format("opentype");font-weight:400;font-style:normal}@font-face{font-family:"euclid";src:url("moz-extension://8919e213-7a93-4205-b557-7e271785bdef/static/fonts/EuclidCircularA-Medium.otf") format("opentype");font-weight:500;font-style:normal}@font-face{font-family:"euclid";src:url("moz-extension://8919e213-7a93-4205-b557-7e271785bdef/static/fonts/EuclidCircularA-Bold.otf") format("opentype");font-weight:600;font-style:normal}</style></head>
+
+    <body class="bg-[#111111]" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6IntmY2E2N2Y0MS03NzZiLTQzOGEtOTM4Mi02NjIxNzE4NTg2MTV9IiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjEuOS4xNSIsInNjb3JlIjoxMDkxNX1d"><audio class="audio-for-speech" src=""></audio><div class="translate-tooltip-mtz translator-hidden" bis_skin_checked="1">
+                    <div class="header" bis_skin_checked="1">
+                        <div class="header-controls" bis_skin_checked="1">
+                            Translator
+                        </div>
+                        <div class="header-controls" bis_skin_checked="1">
+                            <span class="support"></span>
+                        </div>
+                        <div class="header-controls" bis_skin_checked="1">
+                            <span class="settings"></span>
+                        </div>
+                    </div>
+                    <div class="translated-text" bis_skin_checked="1">
+                        <div class="words" bis_skin_checked="1"></div>
+                        <div class="sentences" bis_skin_checked="1"></div>
+                    </div>
+                </div><span class="translate-button-mtz" style="top: 314px;left: 1707.5px;"></span>
+        <div id="content" class="bg-main bg-no-repeat bg-fixed bg-cover" bis_skin_checked="1">
+            <div class="bg-[#111111cc]" bis_skin_checked="1">
+                <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-40 px-6 lg:px-8" bis_skin_checked="1">
+                    <div class="text-center" bis_skin_checked="1">
+                        <img class="h-36 mb-6 mx-auto rounded-full" src="https://tcjb.de.cool/img/logos/Janni142.png" alt="WH Logo" draggable="false">
+                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-4xl">Janni142</h1>
+
+                        <p class="my-6 text-lg text-slate-200">Hallo, ich bin Janni142, ihr könnt micht aber auch Jannick nennen!</p>
+
+                        <a href="#projects" bis_skin_checked="1">
+                            <img class="h-8 mt-12 mx-auto animate-bounce" src="William%20Harrison-Dateien/arrow_down.svg">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div id="projects" class="py-20" bis_skin_checked="1">
+                    <div class="mx-auto max-w-7xl px-6 lg:px-8" bis_skin_checked="1">
+                        <div class="max-w-2xl" bis_skin_checked="1">
+                            <h2 class="text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">Projekte</h2>
+                            <p class="mt-6 text-lg leading-8 text-gray-400">In meiner freien Zeit arbeite ich häufig an diesen Projekten!</p>
+                        </div>
+
+                        <ul role="list" class="mt-4 grid gap-x-6 gap-y-6 sm:grid-cols-3 xl:col-span-3">
+                            <div class="p-2 bg-[#11111199] rounded-md" bis_skin_checked="1">
+                                <li>
+                                    <div class="flex items-center gap-x-4" bis_skin_checked="1">
+                                        <img class="h-18 w-16 rounded-md" src="https://linkbaum.2ix.at/Linkbaum/icons/G_tcjb.png" alt="TCJB" draggable="false">
+
+                                        <div bis_skin_checked="1">
+                                            <h3 class="text-base font-semibold leading-7 tracking-tight text-blue-500 hover:text-blue-600"><a href="https://tcjb.de.cool/" target="_blank" bis_skin_checked="1">TCJB</a></h3>
+                                            <p class="text-sm text-gray-400">Owner</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+
+                            <div class="p-2 bg-[#11111199] rounded-md" bis_skin_checked="1">
+                                <li>
+                                    <div class="flex items-center gap-x-4" bis_skin_checked="1">
+                                        <img class="h-18 w-16 rounded-md" src="https://minimania.de.cool/profile/users/MiniMania/avatar.png" alt="is-a.dev" draggable="false">
+
+                                        <div bis_skin_checked="1">
+                                            <h3 class="text-base font-semibold leading-7 tracking-tight text-blue-500 hover:text-blue-600"><a href="https://minimania.de.cool/" target="_blank" bis_skin_checked="1">MiniMania</a></h3>
+                                            <p class="text-sm text-gray-400">Admin</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+
+                            <div class="p-2 bg-[#11111199] rounded-md" bis_skin_checked="1">
+                                <li>
+                                    <div class="flex items-center gap-x-4" bis_skin_checked="1">
+                                        <img class="h-18 w-16 rounded-md" src="https://linkbaum.2ix.at/Linkbaum/icons/favicon.ico" alt="LocalCert" draggable="false">
+
+                                        <div bis_skin_checked="1">
+                                            <h3 class="text-base font-semibold leading-7 tracking-tight text-blue-500 hover:text-blue-600"><a href="https://li.de.cool" target="_blank" bis_skin_checked="1">li.de.cool</a></h3>
+                                            <p class="text-sm text-gray-400">Owner</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+
+                            <div class="p-2 bg-[#11111199] rounded-md" bis_skin_checked="1">
+                                <li>
+                                    <div class="flex items-center gap-x-4" bis_skin_checked="1">
+                                        <img class="h-18 w-16 rounded-md" src="" alt="🌐" draggable="false">
+
+                                        <div bis_skin_checked="1">
+                                            <h3 class="text-base font-semibold leading-7 tracking-tight text-blue-500 hover:text-blue-600"><a href="https://webseitebuch.de.cool" target="_blank" bis_skin_checked="1">Webseitebuch</a></h3>
+                                            <p class="text-sm text-gray-400">Owner</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Me -->
+                <div id="contact" class="py-20" bis_skin_checked="1">
+                    <div class="mx-auto max-w-7xl px-6 lg:px-8" bis_skin_checked="1">
+                        <div class="max-w-2xl" bis_skin_checked="1">
+                            <h2 class="text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">Kontakt</h2>
+                            <p class="mt-6 text-lg leading-8 text-gray-400">Hast du Fragen oder möchtest du Kontakt mit mir aufnehmen? Senden Sie mir hier eine Nachricht.</p>
+                        </div>
+
+                        <h3 class="text-2xl font-bold tracking-tight text-gray-200 sm:text-3xl">Coming Soon</h3>
+                    </div>
+                </div>
+
+            
+            </div>
+
+            <footer class="bg-[#111111cc]">
+                <div class="max-w-(--breakpoint-xl) px-4 py-6 mx-auto space-y-6 overflow-hidden sm:px-6 lg:px-8" bis_skin_checked="1">
+                    <div class="flex flex-wrap justify-center mx-5 my-2 items-center gap-4" bis_skin_checked="1">
+                        <a href="https://li.de.cool/u/Janni142/" class="text-blue-500 hover:text-blue-400" bis_skin_checked="1">Links<i class="ml-2 fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+
+                    <div class="text-center" bis_skin_checked="1">
+                        <p class="text-gray-400">© 2025-<script>document.write(new Date().getFullYear())</script>2025 <span class="font-semibold">Janni142</span> - All Rights Reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="William%20Harrison-Dateien/form.js"></script>
+        <script src="William%20Harrison-Dateien/sponsors.js"></script>
+    <!-- Cloudflare Pages Analytics --><script defer="defer" src="William%20Harrison-Dateien/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;10661e525b154cd8b56c3ef61d9a64ba&quot;}"></script><!-- Cloudflare Pages Analytics --><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'950c66e77d759b1c',t:'MTc1MDA5ODg3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: medium; visibility: hidden;"></iframe><script defer="defer" src="William%20Harrison-Dateien/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;950c66e77d759b1c&quot;,&quot;version&quot;:&quot;2025.6.2&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;217f2c9f604f4f36820187928a4fd400&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfEdge&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+
+
+</body><div id="lumaly-shadowroot" style="position: static !important; z-index: auto !important; display: block !important;" bis_skin_checked="1"></div></html>
