@@ -36,11 +36,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
 
     <!-- Stylesheet -->
-    <link rel="preload" as="image" href="background.jpg">
+    <link rel="preload" as="image" href="background-1920.webp" media="(min-width: 901px)">
+    <link rel="preload" as="image" href="background-1280.webp" media="(max-width: 900px)">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Ohne JavaScript sollen die Sektionen trotzdem sichtbar sein -->
+    <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 
-<body>
+<body id="top">
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <div class="backdrop" aria-hidden="true"></div>
 
     <header class="site-header" id="site-header">
@@ -58,7 +63,7 @@
         </nav>
     </header>
 
-    <main id="top">
+    <main id="main">
         <!-- Hero -->
         <section class="hero">
             <div class="shell">
@@ -159,6 +164,24 @@
                             <span class="card__role">Owner</span>
                         </div>
                     </li>
+
+                    <!-- Coming Soon: Platzhalter – Titel einfach ersetzen und, sobald das
+                         Projekt live ist, das Markup einer der Karten oben übernehmen. -->
+                    <li class="card card--soon reveal" aria-label="Projekt in Arbeit, noch nicht verfügbar">
+                        <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:1.4rem;height:1.4rem"><circle cx="10" cy="10" r="7.25"/><path d="M10 5.75V10l2.75 1.75"/></svg></div>
+                        <div class="card__body">
+                            <h3 class="card__title">Neues Web-Projekt</h3>
+                            <span class="card__role card__role--soon">Coming Soon</span>
+                        </div>
+                    </li>
+
+                    <li class="card card--soon reveal" aria-label="Projekt in Arbeit, noch nicht verfügbar">
+                        <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" style="width:1.4rem;height:1.4rem"><path d="M10 2.75 11.9 7.4l4.65 1.9-4.65 1.9L10 15.85 8.1 11.2 3.45 9.3 8.1 7.4 10 2.75Z"/></svg></div>
+                        <div class="card__body">
+                            <h3 class="card__title">Noch geheim</h3>
+                            <span class="card__role card__role--soon">Coming Soon</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </section>
@@ -199,6 +222,10 @@
         </section>
     </main>
 
+    <a class="to-top" href="#top" id="to-top" aria-label="Zurück nach oben">
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 5.5a1 1 0 0 1 .7.3l6 6a1 1 0 0 1-1.4 1.4L10 7.9l-5.3 5.3a1 1 0 0 1-1.4-1.4l6-6a1 1 0 0 1 .7-.3Z"/></svg>
+    </a>
+
     <footer class="site-footer">
         <div class="shell">
             <ul class="footer__links">
@@ -235,14 +262,40 @@
             if (now > 2025) document.getElementById('year-range').textContent = '–' + now;
         })();
 
-        // Header beim Scrollen einblenden
+        // Header-Hintergrund und "Nach oben"-Button vom Scrollstand abhängig
         (function () {
             var header = document.getElementById('site-header');
+            var toTop = document.getElementById('to-top');
             var update = function () {
-                header.classList.toggle('is-stuck', window.scrollY > 24);
+                var y = window.scrollY;
+                header.classList.toggle('is-stuck', y > 24);
+                toTop.classList.toggle('is-visible', y > window.innerHeight * .8);
             };
             update();
             window.addEventListener('scroll', update, { passive: true });
+        })();
+
+        // Aktiven Navigationspunkt anhand der sichtbaren Sektion markieren
+        (function () {
+            var links = {};
+            document.querySelectorAll('.nav__link[href^="#"]').forEach(function (a) {
+                links[a.getAttribute('href').slice(1)] = a;
+            });
+            var sections = Object.keys(links)
+                .map(function (id) { return document.getElementById(id); })
+                .filter(Boolean);
+            if (!sections.length || !('IntersectionObserver' in window)) return;
+
+            var visible = {};
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+                var current = sections.filter(function (s) { return visible[s.id]; })[0];
+                Object.keys(links).forEach(function (id) {
+                    links[id].classList.toggle('is-active', !!current && current.id === id);
+                });
+            }, { rootMargin: '-45% 0px -45% 0px' });
+
+            sections.forEach(function (s) { io.observe(s); });
         })();
 
         // Fallback, falls ein extern gehostetes Icon nicht lädt:

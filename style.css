@@ -71,6 +71,22 @@ h1, h2, h3 {
 
 ::selection { background: rgba(0, 150, 255, .35); color: #fff; }
 
+/* Sprunglink für Tastatur- und Screenreader-Nutzung */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 100;
+  padding: .7rem 1.2rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  transform: translate(-50%, -110%);
+  transition: transform .2s var(--ease);
+}
+.skip-link:focus { color: #fff; transform: translate(-50%, 0); }
+
 /* --- Layout helpers ----------------------------------------------------- */
 .shell {
   width: 100%;
@@ -120,9 +136,30 @@ h1, h2, h3 {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background:
+  background-color: var(--bg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image:
     linear-gradient(180deg, rgba(11, 13, 18, .62) 0%, rgba(11, 13, 18, .88) 55%, var(--bg) 100%),
-    url("background.jpg") center / cover no-repeat;
+    url("/background-1920.jpg");
+  background-image:
+    linear-gradient(180deg, rgba(11, 13, 18, .62) 0%, rgba(11, 13, 18, .88) 55%, var(--bg) 100%),
+    image-set(url("/background-1920.webp") type("image/webp"),
+              url("/background-1920.jpg")  type("image/jpeg"));
+}
+
+/* Kleinere Datei für schmale Viewports */
+@media (max-width: 900px) {
+  .backdrop {
+    background-image:
+      linear-gradient(180deg, rgba(11, 13, 18, .62) 0%, rgba(11, 13, 18, .88) 55%, var(--bg) 100%),
+      url("/background-1280.jpg");
+    background-image:
+      linear-gradient(180deg, rgba(11, 13, 18, .62) 0%, rgba(11, 13, 18, .88) 55%, var(--bg) 100%),
+      image-set(url("/background-1280.webp") type("image/webp"),
+                url("/background-1280.jpg")  type("image/jpeg"));
+  }
 }
 .backdrop::after {
   content: "";
@@ -192,6 +229,11 @@ h1, h2, h3 {
 .nav__link:hover {
   color: var(--text);
   background: rgba(255, 255, 255, .07);
+}
+.nav__link.is-active {
+  color: var(--text);
+  background: rgba(0, 150, 255, .16);
+  box-shadow: inset 0 0 0 1px rgba(0, 150, 255, .3);
 }
 
 /* --- Buttons ------------------------------------------------------------ */
@@ -425,6 +467,49 @@ h1, h2, h3 {
 
 .card__icon[data-fallback] { color: var(--accent-soft); }
 
+/* Coming-Soon-Karten: nicht verlinkt, bewusst zurückhaltend */
+.card--soon {
+  border-style: dashed;
+  background: rgba(20, 24, 33, .4);
+  cursor: default;
+}
+.card--soon:hover {
+  transform: none;
+  background: rgba(20, 24, 33, .4);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+.card--soon::before { display: none; }
+.card--soon .card__title { color: var(--text-muted); }
+
+.card--soon .card__icon {
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, .03);
+  border-style: dashed;
+}
+
+/* Sanfter Lichtstreifen, damit die Platzhalter nicht tot wirken */
+.card--soon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .07) 50%, transparent 65%);
+  background-size: 300% 100%;
+  animation: shimmer 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0%        { background-position: 140% 0; }
+  55%, 100% { background-position: -40% 0; }
+}
+
+.card__role--soon {
+  border-color: rgba(255, 107, 138, .35);
+  background: rgba(255, 107, 138, .1);
+  color: #ffa8ba;
+}
+
 /* --- Contact ------------------------------------------------------------ */
 .panel {
   display: flex;
@@ -503,6 +588,33 @@ h1, h2, h3 {
 .footer__copy { margin: 0; color: var(--text-dim); font-size: .875rem; }
 .footer__copy strong { color: var(--text-muted); font-weight: 600; }
 
+/* --- Nach oben --------------------------------------------------------- */
+.to-top {
+  position: fixed;
+  right: clamp(1rem, 4vw, 2rem);
+  bottom: clamp(1rem, 4vw, 2rem);
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 2.9rem; height: 2.9rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: rgba(17, 20, 27, .85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-muted);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .25s var(--ease), transform .25s var(--ease),
+              visibility .25s var(--ease), color .2s var(--ease),
+              background .2s var(--ease);
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { color: #fff; background: rgba(30, 36, 48, .92); }
+.to-top svg { width: 1.15rem; height: 1.15rem; }
+
 /* --- Scroll reveal ------------------------------------------------------ */
 .reveal {
   opacity: 0;
@@ -517,7 +629,7 @@ h1, h2, h3 {
 }
 
 @media (min-width: 1024px) {
-  .cards { grid-template-columns: repeat(4, 1fr); }
+  .cards { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 640px) {

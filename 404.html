@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seite nicht gefunden – Janni142</title>
+    <meta name="description" content="Diese Seite gibt es nicht (mehr).">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0096ff">
+
+    <link rel="icon" href="https://tcjb.de.cool/img/logos/Janni142.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .error { display: flex; align-items: center; min-height: 100svh; text-align: center; }
+        .error .shell { display: flex; flex-direction: column; align-items: center; }
+        .error__code {
+            margin: .75rem 0 1.25rem;
+            font-size: clamp(5rem, 22vw, 10rem);
+            font-weight: 700;
+            letter-spacing: -.04em;
+            line-height: 1;
+            background: linear-gradient(180deg, #ffffff 30%, #6f8bab 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backdrop" aria-hidden="true"></div>
+
+    <main class="error">
+        <div class="shell">
+            <span class="section__eyebrow">Fehler 404</span>
+            <p class="error__code">404</p>
+            <h1 class="section__title">Diese Seite gibt es nicht</h1>
+            <p class="hero__tagline">
+                Vielleicht wurde sie verschoben, umbenannt – oder war nie da.
+                Von der Startseite kommst du überall hin.
+            </p>
+
+            <div class="hero__actions">
+                <a class="btn btn--primary" href="/">
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.3 3.3a1 1 0 0 1 1.4 0l6 6a1 1 0 0 1-1.4 1.4l-.3-.28V16a1 1 0 0 1-1 1h-3v-4H9v4H6a1 1 0 0 1-1-1v-5.58l-.3.28a1 1 0 0 1-1.4-1.4l6-6Z"/></svg>
+                    Zur Startseite
+                </a>
+                <a class="btn btn--ghost" href="/#projects">Meine Projekte</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
